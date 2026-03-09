@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitty Stack | Fixed Version</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffeef8; 
+            background-image: radial-gradient(#ffb6c1 1px, transparent 1px);
+            background-size: 40px 40px;
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            overflow: hidden; 
+            color: #ff4d6d;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            text-align: center;
+            border-bottom: 5px solid #ff85a1;
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ff4d6d;
+            font-family: 'Fredoka One', cursive;
+            margin: 0 15px;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            perspective: 1200px;
+        }
+
+        .stack-area {
+            position: relative;
+            width: 350px;
+            height: 500px;
+            margin-bottom: 20px;
+        }
+
+        .polaroid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: white;
+            padding: 15px 15px 60px 15px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border: 1px solid #ffeef8;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.6s;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Kitty Ears */
+        .polaroid::before, .polaroid::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            width: 35px;
+            height: 35px;
+            background: #ffb6c1;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            z-index: -1;
+        }
+        .polaroid::before { left: 25px; transform: rotate(-10deg); }
+        .polaroid::after { right: 25px; transform: rotate(10deg); }
+
+        .polaroid img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Shows full image */
+            background: #fffafa;
+            border-radius: 5px;
+        }
+
+        .caption {
+            font-family: 'Fredoka One', cursive;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        /* Slide Out Effect */
+        .slide-off {
+            transform: translateX(200%) rotate(45deg) !important;
+            opacity: 0;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            z-index: 2000;
+        }
+
+        .btn {
+            background: white;
+            border: 3px solid #ffb6c1;
+            padding: 12px 30px;
+            border-radius: 50px;
+            color: #ff4d6d;
+            font-family: 'Fredoka One', cursive;
+            cursor: pointer;
+            box-shadow: 0 5px 0 #ffb6c1;
+        }
+
+        .btn:active {
+            transform: translateY(3px);
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+       z<a href="index.html">Home</a>
+        <a href="photography.html">Photography</a>
+        <a href="design.html">Design</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <h1>My Designs 🐾</h1>
+
+        <div class="stack-area" id="stack">
+            <div class="polaroid"><img src="photo11.png"><div class="caption">Star Collage ⭐</div></div>
+            <div class="polaroid"><img src="photo18.png"><div class="caption">Ocean Brushes 🌊</div></div>
+            <div class="polaroid"><img src="photo17.png"><div class="caption">Brush Practice 🌸</div></div>
+            <div class="polaroid"><img src="photo16.png"><div class="caption">Band Member 🦭</div></div>
+            <div class="polaroid"><img src="photo15.png"><div class="caption">Photoshop Lasso 🍰</div></div>
+            <div class="polaroid"><img src="photo12.png"><div class="caption">Celebrity Collage 🎨</div></div>
+            <div class="polaroid"><img src="photo19.png"><div class="caption">Cloud Background ☁️</div></div>
+            <div class="polaroid"><img src="photo20.png"><div class="caption">One Word Background 🧸</div></div>
+            <div class="polaroid"><img src="photo14.png"><div class="caption">Photoshop Lasso 🍃</div></div>
+            <div class="polaroid"><img src="photo13.png"><div class="caption">Celebrity Collage 🍓</div></div>
+        </div>
+
+        <div class="controls">
+            <button class="btn" onclick="shuffleCards()">Next Design 🍭</button>
+            <span id="counter" style="font-weight:bold">1 / 10</span>
+        </div>
+    </div>
+
+    <script>
+        let currentIdx = 1;
+        const total = 10;
+
+        // Initialize positions
+        function setup() {
+            const cards = document.querySelectorAll('.polaroid');
+            cards.forEach((card, i) => {
+                card.style.zIndex = i;
+                const randomRot = Math.floor(Math.random() * 6) - 3;
+                card.style.transform = `rotate(${randomRot}deg)`;
+            });
+        }
+        setup();
+
+        function shuffleCards() {
+            const stack = document.getElementById('stack');
+            const cards = stack.querySelectorAll('.polaroid');
+            
+            if (cards.length === 0) return;
+
+            const topCard = cards[cards.length - 1]; // The one visible on top
+
+            // 1. Trigger animation
+            topCard.classList.add('slide-off');
+
+            // 2. Wait for animation, then move to back
+            setTimeout(() => {
+                topCard.classList.remove('slide-off');
+                stack.prepend(topCard); // Move to bottom of the HTML list
+                
+                // 3. Reset all Z-indexes and rotations
+                const newCards = stack.querySelectorAll('.polaroid');
+                newCards.forEach((card, i) => {
+                    card.style.zIndex = i;
+                    // Keep a slight tilt so they look like a messy pile
+                    if (!card.style.transform || card === topCard) {
+                        const randomRot = Math.floor(Math.random() * 6) - 3;
+                        card.style.transform = `rotate(${randomRot}deg)`;
+                    }
+                });
+
+                // 4. Update Counter
+                currentIdx = (currentIdx % total) + 1;
+                document.getElementById('counter').innerText = `${currentIdx} / ${total}`;
+            }, 600);
+        }
+    </script>
+</body>
+</html>

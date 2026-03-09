@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Shoots | Home ✨</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --hot-pink: #ff4d94;
+            --soft-pink: #ffdae9;
+            --white-glass: rgba(255, 255, 255, 0.9);
+        }
+
+        body {
+            background-color: var(--soft-pink);
+            background-image: url("https://i.pinimg.com/originals/3d/8c/73/3d8c73087397f00d832960616b6786a5.jpg");
+            background-repeat: repeat;
+            background-size: 180px;
+            background-attachment: fixed;
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            cursor: crosshair; /* Cute crosshair for a 'camera' feel */
+        }
+
+        nav { 
+            background: var(--white-glass); 
+            padding: 20px; 
+            text-align: center; 
+            border-bottom: 6px dotted var(--hot-pink);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a { 
+            text-decoration: none; 
+            color: #ad1457; 
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1rem;
+            margin: 0 15px; 
+            padding: 8px 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover { 
+            color: var(--hot-pink);
+            letter-spacing: 2px;
+        }
+
+        .container { 
+            max-width: 700px; 
+            margin: 50px auto; 
+            background: var(--white-glass); 
+            padding: 40px; 
+            border-radius: 50px; 
+            border: 5px solid white;
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.2);
+            text-align: center; 
+            position: relative;
+        }
+
+        h1 { 
+            color: var(--hot-pink); 
+            font-family: 'Fredoka One', cursive;
+            font-size: 3.5rem;
+            margin: 0;
+        }
+
+        /* Animated Emoji Stickers */
+        .sticker {
+            position: absolute;
+            font-size: 2.5rem;
+            animation: pulse 2s infinite ease-in-out;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0px white); }
+            50% { transform: scale(1.2); filter: drop-shadow(0 0 10px #fff); }
+        }
+
+        .hero-img {
+            width: 100%; 
+            max-width: 500px;
+            border-radius: 30px; 
+            border: 8px solid white;
+            margin-top: 20px;
+            box-shadow: 10px 10px 0px var(--soft-pink);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="photography.html">Photography</a>
+        <a href="design.html">Design</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <div class="sticker" style="top: -20px; left: -10px;">🐶</div>
+        <div class="sticker" style="top: -20px; right: -10px;">🐱</div>
+        <div class="sticker" style="bottom: -20px; left: 50%;">🐰</div>
+
+        <h1>Sweet Shoots</h1>
+        <p>Capturing the world through a pink lens ✨</p>
+        
+        <img src="pink.webp" alt="Pink Aesthetic" class="hero-img">
+    </div>
+
+</body>
+</html>
