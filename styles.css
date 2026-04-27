@@ -1,0 +1,43 @@
+/* style.css */
+body {
+  /* 1. This makes the page pink immediately */
+  background-color: #ffdae9; 
+
+  /* 2. This is a web link to a Hello Kitty pattern so it works for everyone */
+  background-image: url("https://i.pinimg.com/originals/3d/8c/73/3d8c73087397f00d832960616b6786a5.jpg");
+  
+  /* 3. This makes sure the pattern repeats like wallpaper */
+  background-repeat: repeat;
+  background-size: 200px;
+  background-attachment: fixed;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #ffb6c1;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #ff69b4;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  background: rgba(255, 255, 255, 0.9); /* See-through white box */
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+h1 { color: #ff1493; }

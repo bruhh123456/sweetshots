@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reach Out! 🐾</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Varela+Round&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bubblegum: #ffdeeb;
+            --strawberry: #ff85a1;
+            --cream: #fff5f8;
+            --marshmallow: #ffffff;
+            --text-color: #7d5a5a;
+        }
+
+        body {
+            background-color: var(--bubblegum);
+            background-image: radial-gradient(#ffc1d7 1px, transparent 1px);
+            background-size: 25px 25px;
+            font-family: 'Quicksand', sans-serif;
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background: var(--marshmallow);
+            padding: 15px 30px;
+            border-radius: 50px;
+            margin-top: 20px;
+            box-shadow: 0 8px 0 #f0b4c8;
+            display: flex;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--strawberry);
+            font-weight: 700;
+            transition: transform 0.2s ease;
+        }
+
+        nav a:hover {
+            transform: scale(1.2) rotate(-3deg);
+            color: #ff4d7d;
+        }
+
+        /* --- Main Container --- */
+        .container {
+            background: var(--marshmallow);
+            width: 90%;
+            max-width: 500px;
+            margin: 80px auto 50px auto; /* Increased top margin for the frame */
+            padding: 40px;
+            border-radius: 40px;
+            position: relative;
+            box-shadow: 0 15px 0 #f0b4c8;
+            border: 4px solid var(--strawberry);
+        }
+
+        /* --- THE NEW PICTURE FRAME --- */
+        .profile-frame {
+            position: absolute;
+            top: -100px; /* Sits above the container */
+            left: 50%;
+            transform: translateX(-50%) rotate(-5deg);
+            background: white;
+            padding: 10px 10px 30px 10px;
+            border-radius: 5px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+            animation: floaty 4s ease-in-out infinite;
+        }
+
+        .profile-frame img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 3px;
+            display: block;
+        }
+
+        @keyframes floaty {
+            0%, 100% { transform: translateX(-50%) rotate(-5deg); }
+            50% { transform: translateX(-50%) rotate(5deg) translateY(-10px); }
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Varela Round', sans-serif;
+            font-size: 2.5rem;
+            color: var(--strawberry);
+            margin-top: 40px; /* Space for the floating frame */
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        /* --- Decorative Animals --- */
+        .animal-decor {
+            position: absolute;
+            font-size: 40px;
+            filter: drop-shadow(2px 2px 0px white);
+        }
+        .dog { top: -30px; left: -20px; transform: rotate(-15deg); }
+        .cat { top: -30px; right: -20px; transform: rotate(15deg); }
+        .bunny { bottom: -20px; right: 20px; transform: scaleX(-1); }
+
+        /* --- Form Elements --- */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            padding-left: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 3px solid var(--bubblegum);
+            border-radius: 20px;
+            background: var(--cream);
+            box-sizing: border-box;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--strawberry);
+        }
+
+        button {
+            width: 100%;
+            background: var(--strawberry);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #d65a77;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button:hover {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 #d65a77;
+            background: #ff6b8e;
+        }
+
+        button:active {
+            transform: translateY(6px);
+            box-shadow: none;
+        }
+
+        .footer-sparkles {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            padding-bottom: 40px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="photography.html">Photography</a>
+        <a href="design.html">Design</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <div class="profile-frame">
+        <img src="me.JPG" alt="me" title="me" width="1242" height="2208" />
+            
+        </div>
+
+        <div class="animal-decor dog">🐶</div>
+        <div class="animal-decor cat">🐱</div>
+        <div class="animal-decor bunny">🐰</div>
+
+        <h1>Hello! ✨</h1>
+        <p class="subtitle">Send a message and my animal friends will deliver it to me!</p>
+
+        <form>
+            <div class="input-group">
+                <label>What's your name? 🎀</label>
+                <input type="text" placeholder="Type here..." required>
+            </div>
+
+            <div class="input-group">
+                <label>Your Email 💌</label>
+                <input type="email" placeholder="so-and-so@example.com" required>
+            </div>
+
+            <div class="input-group">
+                <label>What's on your mind? 🐾</label>
+                <textarea rows="4" placeholder="Tell me everything!"></textarea>
+            </div>
+
+            <button type="submit">
+                Send with a Paw-print 🐾
+            </button>
+        </form>
+    </div>
+
+    <div class="footer-sparkles">
+        ✨ 🐈 🌸 🐕 🍬 🐰 ✨
+    </div>
+
+</body>
+</html>
